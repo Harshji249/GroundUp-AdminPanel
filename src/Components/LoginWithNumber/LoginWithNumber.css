@@ -1,0 +1,199 @@
+html {
+	font-size:62.5%;
+  /* font-family: Poppins, 'Source Sans Pro'; */
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 110rem;
+  
+    /* height: 100%;
+  overflow:auto;  */
+
+}.login-using-number-8f9 {
+  width: 100%;
+  height: 102.4rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  
+}
+.login-using-number-8f9 .or-54b {
+  width: 2.3rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 70.9rem;
+  top: 78.1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ababab;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.login-using-number-8f9 .rectangle-76-aGF {
+  width: 73.1rem;
+  height: 102.4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #ffd134;
+}
+.login-using-number-8f9 .rectangle-13-v5D {
+  width: 53.9rem;
+  height: 47.3rem;
+  position: absolute;
+  left: 44rem;
+  top: 12.3rem;
+  box-shadow: 0 0.4rem 3.5rem rgba(0, 0, 0, 0.0799999982);
+  background-color: #ffffff;
+  border-radius: 4rem;
+}
+.login-using-number-8f9 .group-49-Rnf {
+  width: 44.1rem;
+  height: 4.8rem;
+  position: absolute;
+  left: 48.4rem;
+  top: 15.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+.login-using-number-8f9 .group-49-Rnf .welcome-to-groundup-mLj {
+  margin: 0.3rem 10.7rem 0rem 0rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.login-using-number-8f9 .group-49-Rnf .no-account-sign-up-gib {
+  max-width: 10.6rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  /* color: #8d8d8d; */
+  font-family: Poppins, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.login-using-number-8f9 .group-49-Rnf .no-account-sign-up-gib .no-account-sign-up-gib-sub-0 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: #8d8d8d; 
+  font-family: Poppins, 'Source Sans Pro';
+}
+.login-using-number-8f9 .group-49-Rnf .no-account-sign-up-gib .no-account-sign-up-gib-sub-1 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0084ff;
+  font-family: Poppins, 'Source Sans Pro';
+  cursor: pointer;
+  background-color: transparent;
+  border-color: #ffffff;
+}
+.login-using-number-8f9 .group-54-ogj {
+  width: 45.1rem;
+  height: 9.4rem;
+  position: absolute;
+  left: 48.4rem;
+  top: 33.3rem;
+}
+.login-using-number-8f9 .group-54-ogj .enter-your-username-or-email-address-9Eo {
+  margin-bottom: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.login-using-number-8f9 .group-54-ogj .auto-group-rsm1-sAo {
+  box-sizing: border-box;
+  padding: 1.9rem 2.5rem 1.7rem 2.5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4285f4;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+  border: solid 0.1rem #4285f4;
+  background-color: #ffffff;
+  border-radius: 0.9rem;
+}
+.login-using-number-8f9 .groundup-high-resolution-logo-transparent-3-wgT {
+  width: 27.5rem;
+  height: 6.9rem;
+  position: absolute;
+  left: 56.2rem;
+  top: 1.2rem;
+  margin-top: 2.9%;
+  object-fit: cover;
+  vertical-align: top;
+}
+/* .login-using-number-8f9 .rectangle-16-Teo {
+  width: 45.1rem;
+  height: 5rem;
+  position: absolute;
+  left: 48.4rem;
+  top: 64.9rem;
+  background-color: #0084ff;
+  border-radius: 1rem;
+} */
+.login-using-number-8f9 .continue-PHZ {
+  position: absolute;
+  left: 66.5rem;
+  top: 66.3rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45.1rem;
+  height: 5rem;
+  position: absolute;
+  left: 48.4rem;
+  cursor: pointer;
+  top: 50.9rem;
+  background-color: #0084ff;
+  border-radius: 1rem;
+}
+.login-using-number-8f9 .description-text {
+  width: 23.7rem;
+  height: 2.1rem;
+  position: absolute;
+  left:57.3rem;
+  top: 48.1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 2.1;
+  color: rgba(0, 0, 0, 0.349999994);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.login-using-number-8f9 .image-15-JJ3 {
+  width: 11.7rem;
+  height: 8.9rem;
+  position: absolute;
+  left: 65.2rem;
+  top: 23.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
