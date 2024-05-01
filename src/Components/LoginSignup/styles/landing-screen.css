@@ -1,0 +1,50 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.landing-screen-JMd {
+  box-sizing: border-box;
+  padding: 48.3rem 60.1rem;
+  width: 100%;
+  height: 102.4rem;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffd134;
+}
+.landing-screen-JMd .group-20-1Ww {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.landing-screen-JMd .group-20-1Ww .groundup-high-resolution-logo-transparent-1-YfH {
+  width: 19rem;
+  height: 5.1rem;
+  position: relative;
+  left: 0;
+  top: 0.7rem;
+  background-size: 116.316% 108.117%;
+  background-position: 0 -0.207rem;
+  background-image: url('../assets/groundup-high-resolution-logo-transparent-1.png');
+}
+.landing-screen-JMd .group-20-1Ww .groundup-favicon-white-1-obD {
+  width: 5.7rem;
+  height: 5.8rem;
+  position: absolute;
+  left: 18.1rem;
+  top: 0;
+  object-fit: cover;
+  vertical-align: top;
+}

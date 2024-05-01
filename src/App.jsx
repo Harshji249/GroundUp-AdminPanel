@@ -1,33 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
+import LoginOTP from './Components/LoginOTP/LoginOTP';
+import LoginSignup from './Components/LoginSignup/LoginSignup'
+//  import { createBrowserRouter,RouterProvider,Router, Routes, Route } from 'react-router-dom';
+ import LoginWithNo from './Components/LoginWithNumber/LoginWithNo';
+import phoneNo from './Components/LoginWithNumber/LoginWithNo'
+import SignUpOtp from './Components/SignUpOtp/SignUpOtp';
+import Signup from './Components/signUp/Signup';
+import SignUpdigit from './Components/SignUpdigit/SignUpdigit';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+//      const router =createBrowserRouter([
+//       {
+//         path:"/", element:<phoneNo />
+//        }
+//  ])
+
+// { <Router>
+//   <Routes>
+//     <Route path="/" element={<LoginPhnNo/>}/>
+//   </Routes>
+// </Router> }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     { <Router>
+        <Routes>
+        <Route path='/' element={ <LoginSignup/>} />
+        <Route path='/otp' element={ <LoginWithNo/>} />
+        <Route path='/4otp' element={ <LoginOTP/>} />
+        <Route path='/signup' element={ <Signup/>} />
+        <Route path='/signUpOtp' element={ <SignUpOtp/>} />
+        <Route path='/LogIn' element={ <LoginSignup/>} />
+        <Route path='/SignUp4otp' element={ <SignUpdigit/>} />
+
+          
+         </Routes>
+      </Router> }
+  
+      {<div>
+          
+          {/* <LoginSignup/> */}
+          {/* {<LoginWithNo/> } */}
+          {/* <LoginOTP/> */}
+          {/* <Signup/> */}
+          {/* <SignUpOtp/> */}
+          {/* { <SignUpdigit/> } */}
+
+          {/* <RouterProvider router={router}/>  */}
+        
+
+
+      </div> }
+     
+      
     </>
   )
 }
