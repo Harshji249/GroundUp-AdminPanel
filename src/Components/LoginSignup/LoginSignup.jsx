@@ -67,7 +67,7 @@ const LoginSignup = () => {
   };
   const handleSignUp = () => {
     console.log('hello')
-    navigate('/signup')
+    navigate('/signUp')
    
 
   };
@@ -110,7 +110,7 @@ const LoginSignup = () => {
         <br/>
         
         </span>
-        <button  onClick={handleSignUp} class="no-account-sign-up-Uud-sub-1" style={{display:'flex',position:'absolute'}}>Sign up</button>
+        <button  onClick={handleSignUp} class="no-account-sign-up-Uud-sub-1" style={{display:'flex',position:'absolute', cursor:'pointer'}}>Sign up</button>
       </p>
     </div>
     <div class="group-54-qQj">
@@ -141,7 +141,7 @@ const LoginSignup = () => {
 
     <button  onClick={LoginWithNumber} class="login-using-number-gfZ"   component={RouterLink} to={"/LoginPhnNo"}   style={{width: '45.1rem', height: '5.5rem', cursor: 'pointer',position: 'absolute',left: '49.5rem',top: '74.4rem',fontSize:'1.6rem',fontweight: '500',lineHeight: '1.5', color: ' #000000',fontFamily: 'Poppins   "Source Sans Pro"',whiteSpace: 'nowrap', display: 'flex',alignItems: 'center',justifyContent: 'center',boxShadow: '0 0.4rem 1.9rem rgba(119, 147, 65, 0.3000000119)',backgroundColor: 'fff', borderRadius:'1rem'}}>
       LogIn with Number</button>
-    <img class="image-16-aF9" src={Welcome}/>
+    <img class="image-16-aF9" src={Welcome} style={{top:'23rem'}}/>
   
     <div class="group-217-hqZ">
       <p class="or-continue-with-SHM">or continue with</p>

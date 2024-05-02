@@ -1,8 +1,6 @@
-
-
-
 html {
 	font-size:62.5%;
+  
   
 }
 * {
@@ -19,7 +17,7 @@ body {
   width: 144rem;
   height: auto;
   overflow: auto;
-
+  
   
 
 }.group-240-66T {
@@ -57,14 +55,14 @@ body {
 }
 .group-240-66T .login-using-mail-dcB .rectangle-13-of5 {
   width: 51.8rem;
-  height: 70.8rem;
+  height: 50rem;
   position: absolute;
   left: 47.1rem;
-  top: 20.3rem;
+  top: 10rem;
 }
 .group-240-66T .login-using-mail-dcB .rectangle-13-of5 .rectangle-13-k4X {
   width: 100%;
-  height: 70.8rem;
+  height: 60.1rem;
   box-shadow: 0 0.4rem 3.5rem rgba(0, 0, 0, 0.0799999982); 
   background-color: #ffffff;
   border-radius: 4rem;
@@ -75,7 +73,7 @@ body {
   height: 4.8rem;
   position: absolute;
   left: 50.2rem;
-  top: 25.4rem;
+  top: 20rem;
   display: flex;
   align-items: flex-start;
 }
@@ -88,6 +86,7 @@ body {
   font-family: Poppins, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
+  
 }
 .group-240-66T .login-using-mail-dcB .group-49-TzX .no-account-sign-up-Uud {
   max-width: 10.6rem;
@@ -126,7 +125,7 @@ body {
   height: 9.4rem;
   position: absolute;
   left: 49.4rem;
-  top: 40.3rem;
+  top: 33rem;
 }
 .group-240-66T .login-using-mail-dcB .group-54-qQj .enter-your-username-or-email-address-vwy {
   margin-bottom: 1.3rem;
@@ -156,7 +155,7 @@ body {
   height: 12.9rem;
   position: absolute;
   left: 49.4rem;
-  top: 51.1rem;
+  top: 45rem;
   align-items: flex-end;
   display: flex;
   flex-direction: column;
@@ -226,7 +225,7 @@ body {
   cursor: pointer;
   position: absolute;
   left: 49.4rem;
-  top: 67.2rem;
+  top: 60rem;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;

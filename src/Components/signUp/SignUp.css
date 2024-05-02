@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 html {
 	font-size:62.5%;
 }
@@ -8,12 +10,14 @@ html {
 }
 ul, li {
 	list-style: none;
+  
 }
 input {
 	border: none;
 }
 body {
   width: 144rem;
+  font-family: "Poppins", sans-serif;
 }.signup-using-mail-eoy {
   width: 100%;
   height: 102.4rem;
@@ -34,16 +38,16 @@ body {
   height: 6.9rem;
   position: absolute;
   left: 56.2rem;
-  top: 10.2rem;
+  top: 1.2rem;
   object-fit: cover;
   vertical-align: top;
 }
 .signup-using-mail-eoy .rectangle-13-dR1 {
   width: 53.9rem;
-  height: 74.1rem;
+  height: 60.1rem;
   position: absolute;
   left: 45.1rem;
-  top: 20.7rem;
+  top: 10.7rem;
   box-shadow: 0 0.4rem 3.5rem rgba(0, 0, 0, 0.0799999982);
   background-color: #ffffff;
   border-radius: 4rem;
@@ -53,7 +57,7 @@ body {
   height: 3.9rem;
   position: absolute;
   left: 82.4rem;
-  top: 25.7rem;
+  top: 15.7rem;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
@@ -79,7 +83,7 @@ body {
   height: 8.3rem;
   position: absolute;
   left: 49.5rem;
-  top: 29.4rem;
+  top: 14.4rem;
   font-size: 5.5rem;
   font-weight: 500;
   line-height: 1.5;
@@ -96,7 +100,7 @@ body {
   position: absolute;
   cursor: pointer;
   left: 49.5rem;
-  top: 66.8rem;
+  top: 53rem;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
@@ -114,13 +118,16 @@ body {
 
   
 }
+
 .signup-using-mail-eoy .group-54-b2P {
   width: 45.1rem;
   height: 9.4rem;
   position: absolute;
   left: 49.5rem;
-  top: 41rem;
+  top: 39rem;
 }
+
+
 .signup-using-mail-eoy .group-54-b2P .enter-your-username-or-email-address-XAw {
   margin-bottom: 1.3rem;
   font-size: 1.6rem;
@@ -129,6 +136,7 @@ body {
   color: #000000;
   font-family: Poppins, 'Source Sans Pro';
   white-space: nowrap;
+  top:20rem;
 }
 .signup-using-mail-eoy .group-54-b2P .auto-group-uilp-dzf {
   box-sizing: border-box;
@@ -149,7 +157,7 @@ body {
   height: 9.4rem;
   position: absolute;
   left: 49.5rem;
-  top: 52.9rem;
+  top: 46rem;
 }
 .signup-using-mail-eoy .group-55-hUj .enter-your-password-32o {
   margin-bottom: 1.3rem;
@@ -190,8 +198,8 @@ body {
   width: 2.3rem;
   height: 2.4rem;
   position: absolute;
-  left: 71rem;
-  top: 74.6rem;
+  left: 120rem;
+  top: 30rem;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
@@ -233,8 +241,8 @@ body {
   width: 16.2409rem;
   height: 9.6457rem;
   position: absolute;
-  left: 64.1591rem;
-  top: 82.1rem;
+  left: 110rem;
+  top: 30rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -256,3 +264,96 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
+.signup-using-mail-eoy .group-53-b2P {
+  width: 45.1rem;
+  height: 9.4rem;
+  position: absolute;
+  left: 49.5rem;
+  top: 29.9rem; /* Adjust the top position as per your design */
+  backgroundColor:red;
+}
+
+
+.signup-using-mail-eoy .group-53-b2P .enter-your-name-XAw {
+  margin-bottom: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+  backgroundColor:red;
+  box-sizing: border-box;
+  padding: 1.9rem 2.5rem 1.7rem 2.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #7f7f7f;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+  border: solid 0.1rem #4285f4;
+  background-color: #ffffff;
+  border-radius: 0.9rem;
+}
+.signup-using-mail-eoy .group-54-b2P {
+  width: 45.1rem;
+  height: 9.4rem;
+  position: absolute;
+  left: 49.5rem;
+  top: 38rem;
+}
+
+
+.signup-using-mail-eoy .group-53-b2P .enter-your-username-or-email-address-XAw {
+  margin-bottom: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.signup-using-mail-eoy .group-53-b2P .auto-group-uilp-dzf {
+  box-sizing: border-box;
+  padding: 1.9rem 2.5rem 1.7rem 2.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #7f7f7f;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+  border: solid 0.1rem #4285f4;
+  background-color: #ffffff;
+  border-radius: 0.9rem;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.signup-using-mail-eoy {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* Add this style to ensure inner content doesn't overflow */
+.signup-using-mail-eoy .inner-content {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Add this style to ensure inner content can be scrolled if necessary */
+.signup-using-mail-eoy .inner-content-scrollable {
+  overflow-y: auto;
+}
+
