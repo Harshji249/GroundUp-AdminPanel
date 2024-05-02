@@ -4,67 +4,38 @@ import GroundUp from '../Assets/groundup-high-resolution-logo-transparent-3-Zcs.
 import Facebook from '../Assets/Facebook (1).png';
 import Google from '../Assets/google.png';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import axios from 'axios';
 
 
 const SignUp = () => {
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [name, setName] = useState('');
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  })
 
-  // const handleSignUp = async () => {
-  //   try {
-  //     const response = await fetch('https://your-backend-url/signup', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ email, password }),
-  //     });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
-  //     if (response.ok) {
-  //       // Sign up successful
-  //       console.log('Sign up successful');
-  //       // Redirect to another page or perform any desired action
-  //     } else {
-  //       // Handle error
-  //       const data = await response.json();
-  //       setError(data.message); // Assuming your backend returns an error message
-  //     }
-  //   } catch (error) {
-  //     console.error('Error signing up:', error);
-  //     setError('Error signing up. Please try again later.');
-  //   }
-  // };
-
-
-  const handleSignUpWithNumber = async () => {
-    navigate('/signUpOtp')
-    try {
-      const response = await fetch('https://your-backend-url/signup/phone', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ phoneNumber }),
-      });
-
-      if (response.ok) {
-        // Sign up successful
-        console.log('Sign up with number successful');
-        // Redirect or perform any other action
-      } else {
-        const data = await response.json();
-        setError(data.message);
-      }
-    } catch (error) {
-      console.error('Error signing up with number:', error);
-      setError('Error signing up with number. Please try again later.');
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    const payload = {
+      ...formData
     }
-  };
+    const response = await axios.post('http://localhost:3000/api/auth-admin/registeradmin',payload);
+    console.log('response',response)
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+    });
+    navigate('/home')
+  }
 
   // const handlePhoneNumberChange = (e) => {
   //   setPhoneNumber(e.target.value);
@@ -117,8 +88,9 @@ const SignUp = () => {
           <input
             className="auto-group-uilp-dzf" // Apply the same class here
             placeholder="Enter Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name='name'
+            value={formData.name}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className="group-54-b2P">
@@ -126,8 +98,9 @@ const SignUp = () => {
           <input
             className="auto-group-uilp-dzf"
             placeholder="Enter Your Email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name='email'
+            value={formData.email}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className="group-55-hUj">
@@ -135,17 +108,18 @@ const SignUp = () => {
           <input
             className="auto-group-sphr-ySF"
             type="Enter Your New password"
+            name='password'
             placeholder="New Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={(e) => handleChange(e)}
           />
         </div>
-        <button className="group-56-YK1" onClick={handleSignUp}>Sign up</button>
+        <button className="group-56-YK1" onClick={handleSubmit}>Sign up</button>
         {error && <p className="error-message">{error}</p>}
         <p className="welcome-to-groundup-FPm">Welcome to GroundUp</p>
         
         
-        <button className="signup-using-number-zVm" onClick={handleSignUpWithNumber} style={{ width: '45.1rem', height: '5.5rem', cursor: 'pointer', position: 'absolute', left: '49.5rem', top: '60rem', fontSize: '1.6rem', fontweight: '500', lineHeight: '1.5', color: ' #000000', fontFamily: 'Poppins   "Source Sans Pro"', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0.4rem 1.9rem rgba(119, 147, 65, 0.3000000119)', backgroundColor: 'fff', borderRadius: '1rem' }}>Signup using Number</button>
+        <button className="signup-using-number-zVm" onClick={handleSubmit} style={{ width: '45.1rem', height: '5.5rem', cursor: 'pointer', position: 'absolute', left: '49.5rem', top: '60rem', fontSize: '1.6rem', fontweight: '500', lineHeight: '1.5', color: ' #000000', fontFamily: 'Poppins   "Source Sans Pro"', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0.4rem 1.9rem rgba(119, 147, 65, 0.3000000119)', backgroundColor: 'fff', borderRadius: '1rem' }}>Signup using Number</button>
         <div className="group-216-gtP">
           <p className="or-continue-with-1vf">or continue with</p>
           <div>
