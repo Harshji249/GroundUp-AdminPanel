@@ -89,6 +89,7 @@ const SignUp = () => {
   };
   const handleSignUp = () => {
     console.log('SignUp');
+    navigate('/Dashboard')
 
   };
 
