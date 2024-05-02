@@ -4,6 +4,7 @@ import Sidebar from './Components/Dashboard/Sidebar'
 import Home from './Components/Dashboard/Home'
 import './App.css'
 
+
 const Dashboard = () => {
     const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
 
@@ -16,6 +17,7 @@ const Dashboard = () => {
         <Header />
         <Sidebar/>
         <Home />
+        
       </div>
     )
   }

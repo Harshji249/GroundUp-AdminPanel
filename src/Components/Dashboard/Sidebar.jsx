@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import 
 {BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
   BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
@@ -16,23 +17,23 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
         </div>
 
         <ul className='sidebar-list'>
-            <li className='sidebar-list-item'>
-                <a href="">
-                    <BsGrid1X2Fill className='icon'/> Dashboard
-                </a>
-            </li>
-            <li className='sidebar-list-item'>
-                <a href="">
-                <IoIosAddCircle className='icon' /> Add Ground 
-                </a>
-            </li>
-            <hr />
-            <li className='sidebar-list-item'>
-                <a href="">
-                    <BsFillGearFill className='icon'/> Setting
-                </a>
-            </li>
-        </ul>
+        <li className='sidebar-list-item'>
+          <Link to="/Dashboard">
+            <BsGrid1X2Fill className='icon'/> Dashboard
+          </Link>
+        </li>
+        <li className='sidebar-list-item'>
+          <Link to="/Dashboard/AddGround">
+            <IoIosAddCircle className='icon' /> Add Ground 
+          </Link>
+        </li>
+        <hr />
+        <li className='sidebar-list-item'>
+          <Link to="/Dashboard/Settings">
+            <BsFillGearFill className='icon'/> Setting
+          </Link>
+        </li>
+      </ul>
     </aside>
   )
 }

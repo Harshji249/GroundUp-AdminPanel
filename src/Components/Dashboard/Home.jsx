@@ -1,9 +1,5 @@
 import React from 'react'
-import 
-{ BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
- from 'react-icons/bs'
- import Header from './Header';
-import Sidebar from './Sidebar';
+
 function Home() {
 
     const data = [
@@ -53,6 +49,7 @@ function Home() {
      
 
   return (
+    <>
 
     <main className='main-container'>
       
@@ -83,8 +80,9 @@ function Home() {
            
             
         </div>
-
     </main>
+        
+        </>
   )
 }
 
