@@ -1,8 +1,6 @@
 // import React from "react";
 import React, { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-
-import "./SignUpOtp.css";
 import GroundUp from '../Assets/groundup-high-resolution-logo-transparent-3-Zcs.png';
 
 

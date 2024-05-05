@@ -9,21 +9,9 @@ import SignUpOtp from './Components/SignUpOtp/SignUpOtp';
 import Signup from './Components/signUp/Signup';
 import SignUpdigit from './Components/SignUpdigit/SignUpdigit';
 import Dashboard from './Dashboard';
+import AddGround from './Components/Dashboard/AddGround';
 
 function App() {
-  
-//      const router =createBrowserRouter([
-//       {
-//         path:"/", element:<phoneNo />
-//        }
-//  ])
-
-// { <Router>
-//   <Routes>
-//     <Route path="/" element={<LoginPhnNo/>}/>
-//   </Routes>
-// </Router> }
-
   return (
     <>
      { <Router>
@@ -33,10 +21,10 @@ function App() {
         <Route path='/4otp' element={ <LoginOTP/>} />
         <Route path='/signup' element={ <Signup/>} />
         <Route path='/signUpOtp' element={ <SignUpOtp/>} />
-        <Route path='/LogIn' element={ <LoginSignup/>} />
+        <Route path='/login' element={ <LoginSignup/>} />
         <Route path='/SignUp4otp' element={ <SignUpdigit/>} />
-        <Route path='/Dashboard' element={ <Dashboard/>} />
-
+        <Route path='/dashboard' element={ <Dashboard/>} />
+        <Route path='Dashboard/addground' element={ <AddGround/>} />
           
          </Routes>
       </Router> }

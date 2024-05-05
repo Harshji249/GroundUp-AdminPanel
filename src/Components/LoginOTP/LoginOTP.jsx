@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './LoginOTP.css';
 import WelcomeImage from '../Assets/image-16.png';
 import GroundUpLogo from '../Assets/groundup-high-resolution-logo-transparent-3-Zcs.png';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';

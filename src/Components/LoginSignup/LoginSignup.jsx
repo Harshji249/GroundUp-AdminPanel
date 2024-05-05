@@ -1,175 +1,149 @@
-import React from 'react'
-import './LoginSignup.css'
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
-// import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-
-// export default function Login({ userDetails, setUserDetails }) {
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   // const loginUserState = useSelector((state) => state.loginUserState);
-//   const loginUserState = useSelector((state) => state.loginUserState);
-//   // console.log("STATE", loginUserState?.userDetails[0]?.authToken)
-//   // console.log("STATE", loginUserState)
-
-//   useEffect(() => {
-//     if (loginUserState.loginStatus === "success") {
-//       console.log("Success login")
-//       const token = loginUserState?.userDetails[0]?.authToken;
-
-//       localStorage.setItem("authtoken", token)
-//       navigate('/home');
-
-//     }
-//   }, 
-//   [loginUserState.loginStatus, navigate]);
-//   const handleChange = (e) => {
-//     setUserDetails({ ...userDetails, [e.target.name]: e.target.value })
-//   }
-
-//   const submitData = async (e) => {
-//     e.preventDefault();
-
-//     // localStorage.setItem("TEST", "hello")
-//     const user = {
-//       ...userDetails
-//     }
-//     dispatch(login(user));
-
-//     setUserDetails({
-//       email: "",
-//       password: "",
-//     });
-
-//   }
-
-
-
-
-import EyeImage from '../Assets/eye-1.png';
-import GroundUp from '../Assets/groundup-high-resolution-logo-transparent-3-Zcs.png';
-import Welcome from  '../Assets/image-16.png';
- import Facebook from '../Assets/Facebook (1).png';
- import Google from '../Assets/google.png';
-
-
-
+import React, { useState } from "react";
+import "./LoginSignup.css";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import EyeImage from "../Assets/eye-1.png";
+import GroundUp from "../Assets/groundup-high-resolution-logo-transparent-3-Zcs.png";
+import Welcome from "../Assets/image-16.png";
+import Facebook from "../Assets/Facebook (1).png";
+import { TextField } from "@mui/material";
+import Google from "../Assets/google.png";
+import axios from "axios";
 const LoginSignup = () => {
   const navigate = useNavigate();
-
-  const handleGoogleLogin = () => {
-    console.log('hello')
+  const [userDetails, setUserDetails] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
 
-  const handleFacebookLogin = () => {
-    console.log('hello')
-  
-  };
   const handleSignUp = () => {
-    console.log('hello')
-    navigate('/signUp')
-   
-
+    navigate("/signUp");
   };
-  const LoginWithNumber = () => {
-    console.log('hello')
-    navigate('/otp')
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const payload = {
+      ...userDetails,
+    };
+    const response = await axios.post(
+      "http://localhost:3000/api/auth-admin/login",
+      payload
+    );
+    console.log("response", response);
+    setUserDetails({
+      email: "",
+      password: "",
+    });
+    if (response.status === 200) navigate("/Dashboard");
   };
 
-
+  const divStyle = {
+    width: "100vw", // Adjust the width as needed
+    height: "100vh", // Adjust the height as needed
+    background: "linear-gradient(to right, white 50%, #FFD134 50%)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   return (
     <>
-   
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500"
-/>
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C500"
-/>
-<link rel="stylesheet" href="./styles/group-240.css" />
-
-<form onSubmit={""}>
-   <div>
-   <div class="group-240-66T">
-  <div class="login-using-mail-dcB">
-    <p class="or-As1">OR</p>
-    <div class="rectangle-76-sFd">
-    </div>
-    <div class="rectangle-13-of5">
-      <div class="rectangle-13-k4X">
-      </div>
-    </div>
-    <div class="group-49-TzX">
-      <p class="welcome-to-groundup-yxs">Welcome to GroundUp</p>
-      <p class="no-account-sign-up-Uud">
-        <span class="no-account-sign-up-Uud-sub-0">
-        No Account ?
-        <br/>
-        
-        </span>
-        <button  onClick={handleSignUp} class="no-account-sign-up-Uud-sub-1" style={{display:'flex',position:'absolute', cursor:'pointer'}}>Sign up</button>
-      </p>
-    </div>
-    <div class="group-54-qQj">
-      <p class="enter-your-username-or-email-address-vwy">Enter your email address</p>
-      <input class="auto-group-uobv-FjM" placeholder='email address'/>
-      {/* value={userDetails.email}
-                    onChange={(e) => handleChange(e)}
-                    required   */}
-    </div>
-    <div class="group-215-v4o">
-      <div class="group-55-RXM">
-        <p class="enter-your-password-mr7">Enter your Password</p>
-        <div style={{display:'flex'}}>
-          <input class="auto-group-uenb-uSX" type='password' placeholder='Password' style={{}}
-            // value={userDetails.email}
-            // onChange={(e) => handleChange(e)}
-            // required 
+      <div style={divStyle}>
+        <div
+          style={{
+            width: "30%",
+            height: "83%",
+            backgroundColor: "white",
+            borderRadius: 20,
+            boxShadow: "0 0 10px 0px black",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <div>
+            <h1 style={{ fontWeight: "bold", color: "black" }}>
+              Welcome to GroundUp
+            </h1>
+          </div>
+          <div>
+            <img
+              src={Welcome}
+              alt=""
+              style={{ width: "117px", height: "89px" }}
             />
-          <img class="eye-1-ewq" src={EyeImage} style={{position:'absolute', right:5, bottom:55 ,objectfit:'contain',height:'18px', fontfamily: 'Poppins, "Source Sans Pro"',fontsize: '1.4rem',fontweight: '300'}}/>
+          </div>
+
+          <div>
+            <h5>Enter Your Email Address</h5>
+            <TextField
+              id="outlined-basic"
+              label="Your Email"
+              variant="outlined"
+              name ='email'
+              value ={userDetails.email}
+              onChange={(e)=>handleChange(e)}
+              sx={{ width: "400px" }}
+            />
+          </div>
+          <div>
+            <h5>Enter Your Password</h5>
+            <TextField
+              id="outlined-basic"
+              label="Your Password"
+              variant="outlined"
+              name ='password'
+              value ={userDetails.password}
+              onChange={(e)=>handleChange(e)}
+              sx={{ width: "400px" }}
+            />
+          </div>
+
+          <div style={{ width: "88%" }}>
+            <h5 style={{ color: "red", textAlign: "right", cursor: "pointer" }}>
+              Forget Password
+            </h5>
+          </div>
+
+          <div style={{ width: "88%", height: "45px" }}>
+            <button
+              style={{
+                cursor: "pointer",
+                borderRadius: 10,
+                border: "none",
+                width: "100%",
+                height: "100%",
+                fontSize: "18px",
+                backgroundColor: "#0085FF",
+                color: "white",
+              }}
+              onClick={handleSubmit}
+            >
+              Log In
+            </button>
+          </div>
+
+          <div style={{ width: "88%", height: "45px", marginTop: 20 }}>
+            <button
+              style={{
+                cursor: "pointer",
+                borderRadius: 10,
+                border: "1px solid #0085FF",
+                width: "100%",
+                height: "100%",
+                fontSize: "18px",
+                backgroundColor: "white",
+                color: "black",
+              }}
+              onClick={handleSignUp}
+            >
+              Create An Account
+            </button>
+          </div>
         </div>
       </div>
-      <p class="forgot-password-97u">Forgot Password</p>
-    </div>
-    <button class="group-56-gNj">Sign in</button>
-    <img class="groundup-high-resolution-logo-transparent-3-6BZ" src={GroundUp}/>
-    <div class="rectangle-77-bPD">
-    </div>
+    </>
+  );
+};
 
-    <button  onClick={LoginWithNumber} class="login-using-number-gfZ"   component={RouterLink} to={"/LoginPhnNo"}   style={{width: '45.1rem', height: '5.5rem', cursor: 'pointer',position: 'absolute',left: '49.5rem',top: '74.4rem',fontSize:'1.6rem',fontweight: '500',lineHeight: '1.5', color: ' #000000',fontFamily: 'Poppins   "Source Sans Pro"',whiteSpace: 'nowrap', display: 'flex',alignItems: 'center',justifyContent: 'center',boxShadow: '0 0.4rem 1.9rem rgba(119, 147, 65, 0.3000000119)',backgroundColor: 'fff', borderRadius:'1rem'}}>
-      LogIn with Number</button>
-    <img class="image-16-aF9" src={Welcome} style={{top:'23rem'}}/>
-  
-    <div class="group-217-hqZ">
-      <p class="or-continue-with-SHM">or continue with</p>
-      {/* <img class="group-13-Ldd" src={FGA}/> */}
-      
-      <div>
-      <div>
-        <button type='submit' onClick={handleFacebookLogin} class="login-button-facebook">
-          <img src={Facebook} style={{ width: '41 px',height: '50px',flexshrink: '0' ,display :' flex' ,justifyContent:'left',position:'absolute' ,bottom:10,right:100}} />
-          
-        </button>
-      </div>
-      
-        <button type='submit' onClick={handleGoogleLogin} class="login-button-google">
-          <img src={Google} style={{flexshrink: 0 ,display: 'flex',justifycontent:'20px' , position: 'absolute',bottom: '15px',width: '41px',   }}  />
-      
-        </button>
-      </div>
-         
-    </div>
-    <div class="frame-15-UUw">
-    </div>
-  </div>
-</div>
-</div>
-</form>
-</>
-  )
-}
-
-export default LoginSignup
+export default LoginSignup;

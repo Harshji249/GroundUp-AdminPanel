@@ -1,7 +1,5 @@
 // import React from "react";
 import React, { useState } from 'react';
-
-import "./SignUpdigit.css";
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 

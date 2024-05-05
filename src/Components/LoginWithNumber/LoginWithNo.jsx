@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 // import { Navigate, Link as RouterLink, useNavigate } from 'react-router-dom';
-import "./LoginWithNumber.css";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 import Welcome from "../Assets/image-16.png";
