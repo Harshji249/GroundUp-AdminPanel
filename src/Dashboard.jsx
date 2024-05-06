@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from './Components/Dashboard/Header';
 import Sidebar from './Components/Dashboard/Sidebar';
 import Home from './Components/Dashboard/Home';
 import './App.css';
@@ -12,33 +11,39 @@ const Dashboard = () => {
   };
 
   return (
-    <div >
+    <div className='grid-container'>
       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
-      <div className='main-content'>
-        <div className='main-cards'>
-          <div className='card'>
+      <main className='main-container'>
+    <div className='main-title'>
+        <h3>DASHBOARD</h3>
+    </div>
+
+    <div className='main-cards'>
+        <div className='card'>
             <div className='card-inner'>
-              <h3>Total Earning</h3>
-              <img src="src\images\icon1.png" alt="" />
+                <h3>Total Earning</h3>
+                <img src="src\images\icon1.png" alt="" className='icon' />
             </div>
-            <h1> Rs 3,500</h1>
-          </div>
-          <div className='card'>
+            <h1>Rs 300</h1>
+        </div>
+        <div className='card'>
             <div className='card-inner'>
-              <h3>Total Ground</h3>
-              <img src="src\images\icon2.png" alt="" />
-            </div>
-            <h1>15</h1>
-          </div>
-          <div className='card'>
-            <div className='card-inner'>
-              <h3>Total Booking</h3>
-              <img src="src\images\icon3.png" alt="" />
+                <h3>Total Ground</h3>
+                <img src="src\images\icon2.png" alt=""  />
             </div>
             <h1>12</h1>
-          </div>
         </div>
-      </div>
+        <div className='card'>
+            <div className='card-inner'>
+                <h3>Total Booking</h3>
+                <img src="src\images\icon3.png" alt="" />
+            </div>
+            <h1>33</h1>
+        </div>
+        
+    </div>
+    </main>
+     {/* listing of all grounds*/ }
     </div>
   );
 };

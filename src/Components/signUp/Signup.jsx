@@ -41,7 +41,7 @@ const SignUp = () => {
       email: "",
       password: "",
     });
-    navigate("/home");
+    navigate("/Dashboard");
   };
 
   const handleLogin = () => {
