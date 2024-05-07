@@ -1,8 +1,4 @@
-import React from 'react'
-import 
-{BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
-  BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
- from 'react-icons/bs'
+import React , {useState} from 'react'
  import { Avatar,Typography } from '@mui/material';
  import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
  import image from '../../images/logo.png'
@@ -11,7 +7,13 @@ import
  import { IoIosAddCircle } from "react-icons/io";
  import { Link } from 'react-router-dom';
 
-function Sidebar({openSidebarToggle, OpenSidebar}) {
+function Sidebar() {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+  };
+  
   return (
 <>
 <div>
@@ -29,12 +31,12 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
 
 <div style={{height:'100px',width:'99%', display:"flex", justifyContent:'space-evenly', alignItems:'center'}}>
     <DashboardOutlinedIcon sx={{fontSize:"3rem", cursor:'pointer'}}/>
-    <Typography sx={{fontSize:"1.5rem",cursor:'pointer'}} color='black'>Dashboard</Typography>
+    <Typography sx={{fontSize:"1.5rem",cursor:'pointer'}} color='black'component={Link} to="/Dashboard" onClick = {handleClick}style={{ color: clicked ? 'purple' : 'grey', cursor: 'pointer' }}>Dashboard</Typography>
 </div>
 
 <div style={{height:'100px',width:'99%', display:"flex", justifyContent:'space-evenly', alignItems:'center'}}>
     <AddIcon sx={{fontSize:"3rem",cursor:'pointer'}}/>
-    <Typography sx={{fontSize:"1.5rem",cursor:'pointer'}} color='black'>Add Ground</Typography>
+    <Typography sx={{fontSize:"1.5rem",cursor:'pointer'}} color='black' component={Link} to="/AddGround"  onClick = {handleClick}style={{ color: clicked ? 'grey' : 'purple', cursor: 'pointer' }}>Add Ground</Typography>
 </div>
 </div>
         {/* <ul className='sidebar-list'>

@@ -9,7 +9,7 @@ import SignUpOtp from './Components/SignUpOtp/SignUpOtp';
 import Signup from './Components/signUp/Signup';
 import SignUpdigit from './Components/SignUpdigit/SignUpdigit';
 import Dashboard from './Dashboard';
-import AddGround from './Components/Dashboard/AddGround';
+import AddGround from './AddGround';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path='/login' element={ <LoginSignup/>} />
         <Route path='/SignUp4otp' element={ <SignUpdigit/>} />
         <Route path='/dashboard' element={ <Dashboard/>} />
-        <Route path='Dashboard/addground' element={ <AddGround/>} />
+        <Route path='/AddGround' element={ <AddGround/>} />
           
          </Routes>
       </Router> }
