@@ -31,6 +31,7 @@ const SignUp = () => {
     ).then((res)=>{
       if(res.status === 200) {
         navigate('/dashboard')
+        localStorage.setItem('admin',JSON.stringify(res.data.admin))
         localStorage.setItem('authToken',res.data.authToken)
       }
     }).catch((err)=>{

@@ -26,11 +26,18 @@ const LoginSignup = () => {
     const payload = {
       ...userDetails,
     };
-    const response = await axios.post(
+    await axios.post(
       "http://localhost:3000/api/auth-admin/login",
       payload
-    );
-    console.log("response", response);
+    ).then((res)=>{
+      if(res.status === 200) {
+        navigate('/dashboard')
+        localStorage.setItem('admin',JSON.stringify(res.data.admin))
+        localStorage.setItem('authToken',res.data.authToken)
+      }
+    }).catch((err)=>{
+      setSnackopen(true);
+    })
     setUserDetails({
       email: "",
       password: "",
