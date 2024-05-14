@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import Sidebar from "./Components/Dashboard/Sidebar";
-import { TextField, Box, Typography } from "@mui/material";
+import { TextField, Box, Typography, Button } from "@mui/material";
 import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAutosize";
 import { styled } from "@mui/system";
 import Upload from "./Components/Assets/upload.png";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import axios from "axios";
+
 
 const AddGround = () => {
   const [groundDetails, setGroundDetails] = useState({
     name: "",
     description: "",
     address: "",
-    timeSlot: {},
-    image: "",
   });
   const [timeSlots, setTimeSlots] = useState([
     { startTime: "", endTime: "", price: "" },
@@ -21,43 +23,71 @@ const AddGround = () => {
     const updatedTimeSlots = [...timeSlots];
     updatedTimeSlots[index] = {
       ...updatedTimeSlots[index],
-      [name]: value
+      [name]: value,
     };
     setTimeSlots(updatedTimeSlots);
   };
 
   const handleAddTimeSlot = () => {
-    setTimeSlots([...timeSlots, { startTime: '', endTime: '', price: '' }]);
+    if (timeSlots.length === 3) return;
+    setTimeSlots([...timeSlots, { startTime: "", endTime: "", price: "" }]);
   };
 
   const handleRemoveTimeSlot = (index) => {
+    if (timeSlots.length === 1) return;
     const updatedTimeSlots = [...timeSlots];
     updatedTimeSlots.splice(index, 1);
     setTimeSlots(updatedTimeSlots);
   };
 
-  const [file, setFile] = useState({});
+  const [file, setFile] = useState(null);
   const handleBrowseClick = () => {
-    // Trigger click on the hidden file input element
     document.getElementById("fileInput").click();
   };
 
-  const handleFileChange = (event) => {
+  const handleImageChange = (event) => {
     const file = event.target.files[0];
-    setFile(file);
-    console.log("Selected file:", file);
-    // Handle the selected file as needed
-  };
+    console.log("selected file", file);
+    if (file) {
+        setFile(file);
+    }
+};
 
   const handleChange = (e) => {
     setGroundDetails({ ...groundDetails, [e.target.name]: e.target.value });
   };
+const handleSubmit= async(e)=>{
 
-  const Textarea = styled(BaseTextareaAutosize)(
-    ({ theme }) => `
-    width: 90%;
-  `
-  );
+  e.preventDefault();
+  const formData1 = new FormData()
+  formData1.append('image', file)
+  formData1.append('timeSlot',JSON.stringify(timeSlots))
+  formData1.append('name', groundDetails.name)
+  formData1.append('address', groundDetails.address)
+  formData1.append('description', groundDetails.description)
+  console.log('selected files',file)
+  const payload ={
+    image :file,
+    timeSlot:timeSlots,
+    ...groundDetails,
+  }
+  console.log('payload',payload)
+  await axios.post(
+    "http://localhost:3000/api/ground/addground",
+    formData1, {
+      headers: {
+          'auth-token': localStorage.getItem('authToken')
+      }
+    }
+  ).then((res)=>{
+    if(res.status === 200) {
+      navigate('/dashboard')
+    }
+  }).catch((err)=>{
+    console.log(err)
+  })
+}
+
   return (
     <div className="grid-container">
       <Sidebar />
@@ -67,7 +97,8 @@ const AddGround = () => {
         >
           <h1 style={{ color: "#0085FF" }}>ADD A NEW GROUND</h1>
         </div>
-        <div style={{ height: "100vh", width: "100vw", display: "flex" }}>
+        <form onSubmit={handleSubmit} >
+        <div style={{ height: "85vh", width: "100vw", display: "flex" }}>
           <div style={{ height: "100%", width: "40%" }}>
             <div>
               <h5>Add Ground Name </h5>
@@ -83,9 +114,8 @@ const AddGround = () => {
             </div>
             <div>
               <h5>Address</h5>
-              <Textarea
-                aria-label="minimum height"
-                minRows={8}
+              <TextField
+               sx={{ width: "90%"}}
                 name="address"
                 value={groundDetails.address}
                 onChange={(e) => handleChange(e)}
@@ -94,9 +124,8 @@ const AddGround = () => {
             </div>
             <div>
               <h5>Description </h5>
-              <Textarea
-                aria-label="minimum height"
-                minRows={12}
+              <TextField
+               sx={{ width: "90%" }}
                 name="description"
                 value={groundDetails.description}
                 onChange={(e) => handleChange(e)}
@@ -139,8 +168,9 @@ const AddGround = () => {
                 <input
                   id="fileInput"
                   type="file"
+                  name="file"
                   style={{ display: "none" }}
-                  onChange={handleFileChange}
+                  onChange={handleImageChange}
                 />
               </Box>
               <Box>
@@ -149,87 +179,93 @@ const AddGround = () => {
             </Box>
 
             <Box
-      sx={{
-        border: "2px solid #000",
-        width: "55%",
-        height: "30%",
-        marginTop: 5,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: "#91CAFF",
-          width: "100%",
-          height: "22%",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
-        <h3>From</h3>
-        <h3>To</h3>
-        <h3>Price</h3>
-      </div>
-      <div
-        style={{
-          width: "100%",
-          height: "80%",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        {timeSlots.map((timeSlot, index) => (
-          <Box
-            key={index}
-            sx={{
-              width: "100%",
-              height: "33%",
-              display: "flex",
-              justifyContent: "space-around",
-            }}
-          >
-            <TextField
-              name="startTime"
-              value={timeSlot.startTime}
-              onChange={(e) =>
-                handleInputChange(index, e.target.name, e.target.value)
-              }
-              sx={{ width: "100px" }}
-              id="outlined-basic"
-              variant="outlined"
-            />
-            <TextField
-              name="endTime"
-              value={timeSlot.endTime}
-              onChange={(e) =>
-                handleInputChange(index, e.target.name, e.target.value)
-              }
-              sx={{ width: "100px" }}
-              id="outlined-basic"
-              variant="outlined"
-            />
-            <TextField
-              name="price"
-              value={timeSlot.price}
-              onChange={(e) =>
-                handleInputChange(index, e.target.name, e.target.value)
-              }
-              sx={{ width: "100px" }}
-              id="outlined-basic"
-              variant="outlined"
-            />
-            <button onClick={() => handleRemoveTimeSlot(index)}>Remove</button>
-          </Box>
-        ))}
-      </div>
-      <button onClick={handleAddTimeSlot}>Add Time Slot</button>
+              sx={{
+                border: "2px solid #000",
+                width: "55%",
+                height: "36%",
+                marginTop: 5,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "#91CAFF",
+                  width: "100%",
+                  height: "22%",
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                }}
+              >
+                <h3>From</h3>
+                <h3>To</h3>
+                <h3>Price</h3>
+                <h3>Actions</h3>
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "80%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {timeSlots.map((timeSlot, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      width: "100%",
+                      height: "33%",
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <TextField
+                      name="startTime"
+                      value={timeSlot.startTime}
+                      onChange={(e) =>
+                        handleInputChange(index, e.target.name, e.target.value)
+                      }
+                      sx={{ width: "100px" }}
+                      id="outlined-basic"
+                      variant="outlined"
+                    />
+                    <TextField
+                      name="endTime"
+                      value={timeSlot.endTime}
+                      onChange={(e) =>
+                        handleInputChange(index, e.target.name, e.target.value)
+                      }
+                      sx={{ width: "100px" }}
+                      id="outlined-basic"
+                      variant="outlined"
+                    />
+                    <TextField
+                      name="price"
+                      value={timeSlot.price}
+                      onChange={(e) =>
+                        handleInputChange(index, e.target.name, e.target.value)
+                      }
+                      sx={{ width: "100px" }}
+                      id="outlined-basic"
+                      variant="outlined"
+                    />
+                    <RemoveIcon onClick={() => handleRemoveTimeSlot(index)} />
+                    <AddIcon onClick={handleAddTimeSlot} />
+                  </Box>
+                ))}
+              </div>
+            </Box>
+            <Box sx={{display:'flex', justifyContent:"flex-end",width: "55%", height:"50px", marginTop:5}}>
+      <Button  variant="contained" type="submit">Submit</Button>
+      <Button variant="contained" color="error" sx={{ml:5}}>Cancel</Button>
     </Box>
           </div>
         </div>
+        </form>
       </main>
     </div>
   );
