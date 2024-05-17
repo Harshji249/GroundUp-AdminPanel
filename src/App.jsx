@@ -10,6 +10,7 @@ import Signup from './Components/signUp/Signup';
 import SignUpdigit from './Components/SignUpdigit/SignUpdigit';
 import Dashboard from './Dashboard';
 import AddGround from './AddGround';
+import MyGround from './MyGround';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/SignUp4otp' element={ <SignUpdigit/>} />
         <Route path='/dashboard' element={ <Dashboard/>} />
         <Route path='/AddGround' element={ <AddGround/>} />
+        <Route path='/MyGround' element={ <MyGround/>} />
           
          </Routes>
       </Router> }

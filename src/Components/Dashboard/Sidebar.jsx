@@ -44,25 +44,13 @@ function Sidebar() {
     <AddIcon sx={{fontSize:"3rem",cursor:'pointer'}}/>
     <Typography sx={{fontSize:"1.5rem",cursor:'pointer'}} color='black' component={Link} to="/AddGround"  onClick = {handleClick}style={{ color: clicked ? 'grey' : 'purple', cursor: 'pointer' }}>Add Ground</Typography>
 </div>
+
+<div style={{height:'100px',width:'99%', display:"flex", justifyContent:'space-evenly', alignItems:'center'}}>
+    <AddIcon sx={{fontSize:"3rem",cursor:'pointer'}}/>
+    <Typography sx={{fontSize:"1.5rem",cursor:'pointer'}} color='black' component={Link} to="/MyGround"  onClick = {handleClick}style={{ color: clicked ? 'grey' : 'purple', cursor: 'pointer' }}>My Ground</Typography>
 </div>
-        {/* <ul className='sidebar-list'>
-            <li className='sidebar-list-item'>
-            <a href="">
-            <BsGrid1X2Fill className='icon'/> Dashboard
-            </a>
-            </li>
-            <li className='sidebar-list-item'>
-            <Link to='addground'>
-            <IoIosAddCircle className='icon' /> Add Ground 
-            </Link>
-            </li>
-            <hr />
-            <li className='sidebar-list-item'>
-            <a href="">
-            <BsFillGearFill className='icon'/> Setting
-            </a>
-            </li>
-        </ul> */}
+</div>
+
         </div>
 </>
   )
