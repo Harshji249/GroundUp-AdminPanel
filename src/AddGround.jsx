@@ -7,6 +7,10 @@ import Upload from "./Components/Assets/upload.png";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import axios from "axios";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import InputAdornment from '@mui/material/InputAdornment';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 
 const AddGround = () => {
@@ -16,7 +20,7 @@ const AddGround = () => {
     address: "",
   });
   const [timeSlots, setTimeSlots] = useState([
-    { startTime: "", endTime: "", price: "" },
+    { startTime: null, endTime: null, price: "" },
   ]);
 
   const handleInputChange = (index, name, value) => {
@@ -30,7 +34,7 @@ const AddGround = () => {
 
   const handleAddTimeSlot = () => {
     if (timeSlots.length === 3) return;
-    setTimeSlots([...timeSlots, { startTime: "", endTime: "", price: "" }]);
+    setTimeSlots([...timeSlots, { startTime: null, endTime: null, price: "" }]);
   };
 
   const handleRemoveTimeSlot = (index) => {
@@ -181,7 +185,7 @@ const handleSubmit= async(e)=>{
             <Box
               sx={{
                 border: "2px solid #000",
-                width: "55%",
+                width: "60%",
                 height: "36%",
                 marginTop: 5,
                 display: "flex",
@@ -200,9 +204,9 @@ const handleSubmit= async(e)=>{
                   alignItems: "center",
                 }}
               >
-                <h3>From</h3>
-                <h3>To</h3>
-                <h3>Price</h3>
+                <h3  style={{ width: "130px" }}>From</h3>
+                <h3 style={{ width: "130px" }}>To</h3>
+                <h3 style={{ width: "130px" }}>Price</h3>
                 <h3>Actions</h3>
               </div>
               <div
@@ -213,7 +217,7 @@ const handleSubmit= async(e)=>{
                   flexDirection: "column",
                 }}
               >
-                {timeSlots.map((timeSlot, index) => (
+                {timeSlots?.map((timeSlot, index) => (
                   <Box
                     key={index}
                     sx={{
@@ -223,35 +227,46 @@ const handleSubmit= async(e)=>{
                       justifyContent: "space-around",
                     }}
                   >
-                    <TextField
+                     <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <TimePicker
                       name="startTime"
-                      value={timeSlot.startTime}
+                      value={timeSlot?.startTime} 
                       onChange={(e) =>
-                        handleInputChange(index, e.target.name, e.target.value)
+                        handleInputChange(index, 'startTime', e)
                       }
-                      sx={{ width: "100px" }}
+                      sx={{ width: "132px" }}
                       id="outlined-basic"
                       variant="outlined"
-                    />
-                    <TextField
+                      />
+                      </LocalizationProvider>
+                     <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <TimePicker
                       name="endTime"
-                      value={timeSlot.endTime}
+                      value={timeSlot?.endTime}
                       onChange={(e) =>
-                        handleInputChange(index, e.target.name, e.target.value)
+                        handleInputChange(index, 'endTime', e)
                       }
-                      sx={{ width: "100px" }}
+                      sx={{ width: "132px" }}
                       id="outlined-basic"
                       variant="outlined"
                     />
+                      </LocalizationProvider>
                     <TextField
                       name="price"
-                      value={timeSlot.price}
+                      value={timeSlot?.price}
                       onChange={(e) =>
                         handleInputChange(index, e.target.name, e.target.value)
                       }
-                      sx={{ width: "100px" }}
+                      sx={{ width: "132px" }}
                       id="outlined-basic"
                       variant="outlined"
+                      InputProps={{
+                        startAdornment: <InputAdornment position="start">Rs</InputAdornment>,
+                        inputProps: {
+                          type: 'number',
+                          min: '0',
+                        },
+                      }}
                     />
                     <RemoveIcon onClick={() => handleRemoveTimeSlot(index)} />
                     <AddIcon onClick={handleAddTimeSlot} />
