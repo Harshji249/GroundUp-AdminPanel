@@ -77,7 +77,7 @@ const handleSubmit= async(e)=>{
   }
   console.log('payload',payload)
   await axios.post(
-    "http://localhost:3000/api/ground/addground",
+    "https://groundup-server.onrender.com/api/ground/addground",
     formData1, {
       headers: {
           'auth-token': localStorage.getItem('authToken')

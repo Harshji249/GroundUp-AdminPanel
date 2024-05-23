@@ -26,7 +26,7 @@ const SignUp = () => {
       ...formData,
     };
     await axios.post(
-      "http://localhost:3000/api/auth-admin/registeradmin",
+      "https://groundup-server.onrender.com/api/auth-admin/registeradmin",
       payload
     ).then((res)=>{
       if(res.status === 200) {

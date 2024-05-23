@@ -22,7 +22,7 @@ const MyGround = () => {
   useEffect(() => {
     const fetchGrounds = async () => {
       await axios
-        .get("http://localhost:3000/api/ground/mygrounds", {
+        .get("https://groundup-server.onrender.com/api/ground/mygrounds", {
           headers: {
             "auth-token": localStorage.getItem("authToken"),
           },
